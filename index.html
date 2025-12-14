@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhinav's Proposal to Siya | Happy 18th Birthday!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: white;
+        }
+        
+        .game-container {
+            width: 100%;
+            max-width: 1000px;
+            height: 700px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(255, 20, 147, 0.5);
+            border: 3px solid #ff1493;
+        }
+        
+        .scene {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: transform 1s ease, opacity 1s ease;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        #scene1 {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            z-index: 10;
+        }
+        
+        #scene2 {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1519677100203-5c9977fec0c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            transform: translateX(100%);
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        #scene3 {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            transform: translateX(100%);
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .game-title {
+            font-size: 4.5rem;
+            color: #ff69b4;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px #ff1493;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .subtitle {
+            font-size: 1.8rem;
+            color: #ffb6c1;
+            margin-bottom: 40px;
+            max-width: 800px;
+            line-height: 1.5;
+        }
+        
+        .character {
+            position: absolute;
+            transition: all 1s ease;
+        }
+        
+        #abhinav {
+            width: 150px;
+            height: 300px;
+            bottom: 100px;
+            left: 35%;
+            transform: translateX(-50%);
+            z-index: 5;
+        }
+        
+        #siya {
+            width: 130px;
+            height: 280px;
+            bottom: 100px;
+            right: 35%;
+            transform: translateX(50%);
+            z-index: 5;
+        }
+        
+        .character-body {
+            position: absolute;
+            border-radius: 50%;
+        }
+        
+        .abhinav-head {
+            width: 60px;
+            height: 60px;
+            background: #8b4513;
+            top: 0;
+            left: 45px;
+            z-index: 2;
+        }
+        
+        .abhinav-body {
+            width: 80px;
+            height: 120px;
+            background: #1e90ff;
+            top: 60px;
+            left: 35px;
+            border-radius: 40% 40% 10% 10%;
+        }
+        
+        .abhinav-legs {
+            width: 25px;
+            height: 80px;
+            background: #00008b;
+            top: 180px;
+        }
+        
+        .abhinav-left-leg {
+            left: 50px;
+        }
+        
+        .abhinav-right-leg {
+            left: 75px;
+        }
+        
+        .abhinav-arms {
+            width: 20px;
+            height: 80px;
+            background: #1e90ff;
+            top: 70px;
+        }
+        
+        .abhinav-left-arm {
+            left: 15px;
+            transform-origin: top center;
+        }
+        
+        .abhinav-right-arm {
+            left: 115px;
+            transform-origin: top center;
+        }
+        
+        .siya-head {
+            width: 55px;
+            height: 55px;
+            background: #ffd700;
+            top: 0;
+            left: 37px;
+            z-index: 2;
+        }
+        
+        .siya-body {
+            width: 70px;
+            height: 110px;
+            background: #ff69b4;
+            top: 55px;
+            left: 30px;
+            border-radius: 40% 40% 10% 10%;
+        }
+        
+        .siya-dress {
+            width: 90px;
+            height: 60px;
+            background: #ff1493;
+            top: 140px;
+            left: 20px;
+            border-radius: 50% 50% 10% 10%;
+        }
+        
+        .siya-legs {
+            width: 20px;
+            height: 60px;
+            background: #ffd700;
+            top: 200px;
+        }
+        
+        .siya-left-leg {
+            left: 45px;
+        }
+        
+        .siya-right-leg {
+            left: 65px;
+        }
+        
+        .kneeling {
+            height: 250px;
+            bottom: 70px;
+        }
+        
+        .kneeling .abhinav-legs {
+            height: 40px;
+            top: 210px;
+        }
+        
+        .kneeling .abhinav-left-leg {
+            transform: rotate(-45deg);
+        }
+        
+        .kneeling .abhinav-right-leg {
+            transform: rotate(45deg);
+        }
+        
+        .ring {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: gold;
+            border-radius: 50%;
+            box-shadow: 0 0 15px gold;
+            top: 130px;
+            left: 125px;
+            z-index: 6;
+            transform: scale(0);
+            transition: transform 0.5s ease;
+        }
+        
+        .ring-show {
+            transform: scale(1) !important;
+        }
+        
+        .ring-sparkle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle 1s infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+        
+        .dialogue-box {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 800px;
+            background: rgba(0, 0, 0, 0.85);
+            border: 3px solid #ff69b4;
+            border-radius: 20px;
+            padding: 25px;
+            z-index: 20;
+            box-shadow: 0 0 30px rgba(255, 105, 180, 0.7);
+        }
+        
+        .dialogue-text {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            min-height: 80px;
+            color: white;
+        }
+        
+        .dialogue-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .btn {
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6);
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+        }
+        
+        .btn-yes {
+            background: linear-gradient(45deg, #00ff7f, #00cc66);
+        }
+        
+        .btn-yes:hover {
+            box-shadow: 0 8px 20px rgba(0, 255, 127, 0.6);
+        }
+        
+        .btn-no {
+            background: linear-gradient(45deg, #ff4444, #cc0000);
+        }
+        
+        .btn-no:hover {
+            box-shadow: 0 8px 20px rgba(255, 68, 68, 0.6);
+        }
+        
+        .heart {
+            color: #ff69b4;
+            animation: heartbeat 1.2s infinite;
+            margin: 0 10px;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+        
+        .hearts-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .heart-particle {
+            position: absolute;
+            color: #ff69b4;
+            font-size: 2rem;
+            opacity: 0;
+            animation: floatUp 4s linear infinite;
+        }
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .cake {
+            position: absolute;
+            width: 120px;
+            height: 100px;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 4;
+            display: none;
+        }
+        
+        .cake-base {
+            width: 120px;
+            height: 40px;
+            background: #8b4513;
+            border-radius: 10px;
+            position: absolute;
+            bottom: 0;
+        }
+        
+        .cake-top {
+            width: 140px;
+            height: 30px;
+            background: #ff69b4;
+            border-radius: 50% 50% 10% 10%;
+            position: absolute;
+            bottom: 40px;
+            left: -10px;
+        }
+        
+        .candle {
+            width: 8px;
+            height: 30px;
+            background: white;
+            position: absolute;
+            bottom: 70px;
+            border-radius: 4px;
+        }
+        
+        .candle-flame {
+            width: 12px;
+            height: 20px;
+            background: gold;
+            border-radius: 50% 50% 20% 20%;
+            position: absolute;
+            bottom: 100px;
+            animation: flicker 0.5s infinite alternate;
+        }
+        
+        @keyframes flicker {
+            0% { transform: scale(1); opacity: 0.9; }
+            100% { transform: scale(1.1); opacity: 1; }
+        }
+        
+        .birthday-number {
+            font-size: 5rem;
+            color: gold;
+            text-shadow: 0 0 20px gold;
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        
+        .show {
+            display: block !important;
+        }
+        
+        .fade-in {
+            opacity: 1 !important;
+        }
+        
+        .final-message {
+            font-size: 2.5rem;
+            text-align: center;
+            max-width: 800px;
+            line-height: 1.4;
+            margin: 30px 0;
+        }
+        
+        .final-submessage {
+            font-size: 1.8rem;
+            color: #ffb6c1;
+            margin-top: 20px;
+        }
+        
+        .restart-btn {
+            margin-top: 40px;
+            padding: 15px 40px;
+            font-size: 1.3rem;
+        }
+        
+        .music-control {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 105, 180, 0.8);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 100;
+            font-size: 1.5rem;
+        }
+        
+        .progress-bar {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 200px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+            z-index: 100;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff69b4, #ff1493);
+            width: 0%;
+            transition: width 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <!-- Scene 1: Introduction -->
+        <div class="scene" id="scene1">
+            <h1 class="game-title">Abhinav's Proposal to Siya</h1>
+            <p class="subtitle">On her special 18th birthday, Abhinav has prepared something extraordinary. Help him make this moment perfect!</p>
+            <div class="dialogue-box">
+                <div class="dialogue-text">
+                    Today is Siya's 18th birthday, and Abhinav has been planning this moment for months. He wants to combine two special occasions - her coming of age and a question that will change their lives forever.
+                </div>
+                <div class="dialogue-options">
+                    <button class="btn" id="startBtn">Begin the Story</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scene 2: Proposal Scene -->
+        <div class="scene" id="scene2">
+            <div class="birthday-number" id="birthdayNumber">18</div>
+            
+            <!-- Characters -->
+            <div class="character" id="abhinav">
+                <div class="character-body abhinav-head"></div>
+                <div class="character-body abhinav-body"></div>
+                <div class="character-body abhinav-legs abhinav-left-leg"></div>
+                <div class="character-body abhinav-legs abhinav-right-leg"></div>
+                <div class="character-body abhinav-arms abhinav-left-arm"></div>
+                <div class="character-body abhinav-arms abhinav-right-arm"></div>
+                <div class="ring" id="ring">
+                    <div class="ring-sparkle" style="top: 3px; left: 3px;"></div>
+                    <div class="ring-sparkle" style="top: 10px; left: 10px;"></div>
+                    <div class="ring-sparkle" style="top: 3px; left: 15px;"></div>
+                </div>
+            </div>
+            
+            <div class="character" id="siya">
+                <div class="character-body siya-head"></div>
+                <div class="character-body siya-body"></div>
+                <div class="character-body siya-dress"></div>
+                <div class="character-body siya-legs siya-left-leg"></div>
+                <div class="character-body siya-legs siya-right-leg"></div>
+            </div>
+            
+            <!-- Birthday Cake -->
+            <div class="cake" id="cake">
+                <div class="cake-base"></div>
+                <div class="cake-top"></div>
+                <!-- Candles will be added by JS -->
+            </div>
+            
+            <!-- Hearts particles -->
+            <div class="hearts-container" id="heartsContainer"></div>
+            
+            <div class="dialogue-box">
+                <div class="dialogue-text" id="dialogueText">
+                    Abhinav: "Siya, on your special 18th birthday, I have something important to ask you..."
+                </div>
+                <div class="dialogue-options">
+                    <button class="btn" id="kneelBtn">Kneel Down</button>
+                    <button class="btn" id="wishBtn">Wish Happy Birthday First</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scene 3: Final Scene -->
+        <div class="scene" id="scene3">
+            <h1 class="game-title">Congratulations! <span class="heart">♥</span></h1>
+            
+            <div class="final-message" id="finalMessage">
+                Siya said <span class="heart">YES</span>! And she had the most memorable 18th birthday ever!
+            </div>
+            
+            <div class="final-submessage">
+                Abhinav and Siya will cherish this moment forever. Happy 18th Birthday, Siya!
+            </div>
+            
+            <div class="dialogue-box">
+                <div class="dialogue-text">
+                    Their love story continues, now with a beautiful engagement to celebrate along with Siya's journey into adulthood.
+                </div>
+                <div class="dialogue-options">
+                    <button class="btn restart-btn" id="restartBtn">Play Again</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        
+        <!-- Music Control -->
+        <div class="music-control" id="musicControl">
+            <i class="fas fa-play" id="playIcon"></i>
+            <i class="fas fa-pause" id="pauseIcon" style="display: none;"></i>
+        </div>
+    </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-sunset-687.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="proposalMusic">
+        <source src="https://assets.mixkit.co/music/preview/mixkit-happy-birthday-to-you-443.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Game State
+        let currentScene = 1;
+        let gameCompleted = false;
+        let musicPlaying = false;
+        
+        // DOM Elements
+        const scene1 = document.getElementById('scene1');
+        const scene2 = document.getElementById('scene2');
+        const scene3 = document.getElementById('scene3');
+        const abhinav = document.getElementById('abhinav');
+        const siya = document.getElementById('siya');
+        const ring = document.getElementById('ring');
+        const cake = document.getElementById('cake');
+        const birthdayNumber = document.getElementById('birthdayNumber');
+        const heartsContainer = document.getElementById('heartsContainer');
+        const dialogueText = document.getElementById('dialogueText');
+        const finalMessage = document.getElementById('finalMessage');
+        const progressFill = document.getElementById('progressFill');
+        
+        // Audio Elements
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        const proposalMusic = document.getElementById('proposalMusic');
+        const musicControl = document.getElementById('musicControl');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
+        
+        // Initialize game
+        function initGame() {
+            // Set up event listeners
+            document.getElementById('startBtn').addEventListener('click', startGame);
+            document.getElementById('kneelBtn').addEventListener('click', kneelDown);
+            document.getElementById('wishBtn').addEventListener('click', wishBirthday);
+            document.getElementById('restartBtn').addEventListener('click', restartGame);
+            musicControl.addEventListener('click', toggleMusic);
+            
+            // Try to autoplay music
+            setTimeout(() => {
+                backgroundMusic.play().then(() => {
+                    musicPlaying = true;
+                    playIcon.style.display = 'none';
+                    pauseIcon.style.display = 'block';
+                }).catch(e => {
+                    console.log("Autoplay prevented");
+                });
+            }, 1000);
+            
+            // Create initial hearts
+            createHearts();
+        }
+        
+        // Start the game
+        function startGame() {
+            currentScene = 2;
+            scene1.style.transform = 'translateX(-100%)';
+            scene1.style.opacity = '0';
+            
+            scene2.style.transform = 'translateX(0)';
+            scene2.style.opacity = '1';
+            
+            updateProgress(33);
+            
+            // Update dialogue
+            dialogueText.innerHTML = 'Abhinav: "Siya, there\'s something I need to tell you on your special day..."';
+        }
+        
+        // Abhinav kneels down
+        function kneelDown() {
+            // Add kneeling class to Abhinav
+            abhinav.classList.add('kneeling');
+            
+            // Show the ring
+            setTimeout(() => {
+                ring.classList.add('ring-show');
+                
+                // Create more hearts
+                createHeartBurst();
+                
+                // Update dialogue
+                dialogueText.innerHTML = 'Abhinav: "Siya, from the moment I met you, I knew you were special. Today, on your 18th birthday, I want to make it even more memorable."';
+                
+                // Change buttons
+                const optionsDiv = document.querySelector('#scene2 .dialogue-options');
+                optionsDiv.innerHTML = '';
+                
+                const yesBtn = document.createElement('button');
+                yesBtn.className = 'btn btn-yes';
+                yesBtn.textContent = 'Show the Ring & Propose';
+                yesBtn.addEventListener('click', propose);
+                optionsDiv.appendChild(yesBtn);
+                
+                updateProgress(66);
+            }, 1000);
+        }
+        
+        // Wish happy birthday first
+        function wishBirthday() {
+            // Show cake and birthday number
+            cake.classList.add('show');
+            birthdayNumber.classList.add('fade-in');
+            
+            // Create candles
+            createCandles();
+            
+            // Update dialogue
+            dialogueText.innerHTML = 'Abhinav: "First things first - Happy 18th Birthday, my love! You\'re now officially an adult, and I\'m so proud of the amazing woman you\'ve become."';
+            
+            // Create heart burst
+            createHeartBurst();
+            
+            // Change buttons after delay
+            setTimeout(() => {
+                const optionsDiv = document.querySelector('#scene2 .dialogue-options');
+                optionsDiv.innerHTML = '';
+                
+                const kneelBtn = document.createElement('button');
+                kneelBtn.className = 'btn';
+                kneelBtn.textContent = 'Now Kneel Down & Propose';
+                kneelBtn.addEventListener('click', kneelDown);
+                optionsDiv.appendChild(kneelBtn);
+                
+                updateProgress(50);
+            }, 2000);
+        }
+        
+        // Propose to Siya
+        function propose() {
+            // Play proposal music
+            proposalMusic.play();
+            
+            // Create massive heart burst
+            createMassiveHeartBurst();
+            
+            // Show final birthday message
+            setTimeout(() => {
+                birthdayNumber.style.fontSize = '7rem';
+                birthdayNumber.style.top = '30px';
+                
+                // Update dialogue
+                dialogueText.innerHTML = 'Abhinav: "Siya, will you make me the happiest man and do me the honor of becoming my wife? I love you more than anything, and I want to spend every birthday with you forever."';
+                
+                // Show response options
+                const optionsDiv = document.querySelector('#scene2 .dialogue-options');
+                optionsDiv.innerHTML = '';
+                
+                const yesBtn = document.createElement('button');
+                yesBtn.className = 'btn btn-yes';
+                yesBtn.textContent = 'YES! I will marry you!';
+                yesBtn.addEventListener('click', () => sheSaysYes(true));
+                optionsDiv.appendChild(yesBtn);
+                
+                const noBtn = document.createElement('button');
+                noBtn.className = 'btn btn-no';
+                noBtn.textContent = 'Let me think...';
+                noBtn.addEventListener('click', () => sheSaysYes(false));
+                optionsDiv.appendChild(noBtn);
+                
+                updateProgress(90);
+            }, 1000);
+        }
+        
+        // Siya says yes
+        function sheSaysYes(isYes) {
+            if (isYes) {
+                // Ultimate celebration
+                createFireworks();
+                
+                // Update dialogue
+                dialogueText.innerHTML = 'Siya: "YES! YES! A thousand times YES! This is the best birthday gift I could ever imagine!"';
+                
+                // Final transition to scene 3
+                setTimeout(() => {
+                    goToFinalScene();
+                }, 3000);
+                
+                updateProgress(100);
+            } else {
+                // She needs to think
+                dialogueText.innerHTML = 'Siya: "Oh Abhinav, this is so sudden! Today is my birthday... can I have a moment to think?"';
+                
+                // Change buttons
+                setTimeout(() => {
+                    const optionsDiv = document.querySelector('#scene2 .dialogue-options');
+                    optionsDiv.innerHTML = '';
+                    
+                    const yesBtn = document.createElement('button');
+                    yesBtn.className = 'btn btn-yes';
+                    yesBtn.textContent = 'Of course, take your time';
+                    yesBtn.addEventListener('click', () => {
+                        dialogueText.innerHTML = 'Siya: "Actually... I don\'t need time. The answer is YES! I love you, Abhinav!"';
+                        
+                        setTimeout(() => {
+                            createFireworks();
+                            setTimeout(() => goToFinalScene(), 3000);
+                            updateProgress(100);
+                        }, 2000);
+                    });
+                    optionsDiv.appendChild(yesBtn);
+                    
+                    updateProgress(95);
+                }, 2000);
+            }
+        }
+        
+        // Go to final scene
+        function goToFinalScene() {
+            currentScene = 3;
+            gameCompleted = true;
+            
+            scene2.style.transform = 'translateX(-100%)';
+            scene2.style.opacity = '0';
+            
+            scene3.style.transform = 'translateX(0)';
+            scene3.style.opacity = '1';
+            
+            // Update final message based on choices
+            if (Math.random() > 0.5) {
+                finalMessage.innerHTML = 'Siya said <span class="heart">YES</span>! And she had the most memorable 18th birthday ever!';
+            } else {
+                finalMessage.innerHTML = 'She said <span class="heart">YES</span>! A birthday and engagement to remember forever!';
+            }
+            
+            // Continue celebration
+            setInterval(createHearts, 500);
+        }
+        
+        // Create candles on the cake
+        function createCandles() {
+            const cakeElement = document.getElementById('cake');
+            
+            // Create 18 candles
+            for (let i = 0; i < 18; i++) {
+                const candle = document.createElement('div');
+                candle.className = 'candle';
+                candle.style.left = `${10 + (i * 6)}px`;
+                
+                const flame = document.createElement('div');
+                flame.className = 'candle-flame';
+                flame.style.left = `${7 + (i * 6)}px`;
+                
+                cakeElement.appendChild(candle);
+                cakeElement.appendChild(flame);
+            }
+        }
+        
+        // Create hearts animation
+        function createHearts() {
+            for (let i = 0; i < 5; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-particle';
+                heart.innerHTML = '♥';
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.fontSize = `${Math.random() * 20 + 20}px`;
+                heart.style.animationDelay = `${Math.random() * 2}s`;
+                heart.style.color = `hsl(${Math.random() * 60 + 300}, 100%, 65%)`;
+                
+                heartsContainer.appendChild(heart);
+                
+                // Remove after animation
+                setTimeout(() => {
+                    heart.remove();
+                }, 4000);
+            }
+        }
+        
+        // Create heart burst
+        function createHeartBurst() {
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    createHearts();
+                }, i * 100);
+            }
+        }
+        
+        // Create massive heart burst
+        function createMassiveHeartBurst() {
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    for (let j = 0; j < 3; j++) {
+                        const heart = document.createElement('div');
+                        heart.className = 'heart-particle';
+                        heart.innerHTML = '♥';
+                        heart.style.left = `${Math.random() * 100}%`;
+                        heart.style.fontSize = `${Math.random() * 30 + 30}px`;
+                        heart.style.animationDuration = `${Math.random() * 3 + 3}s`;
+                        heart.style.color = `hsl(${Math.random() * 60 + 300}, 100%, 65%)`;
+                        
+                        heartsContainer.appendChild(heart);
+                        
+                        setTimeout(() => {
+                            heart.remove();
+                        }, 6000);
+                    }
+                }, i * 50);
+            }
+        }
+        
+        // Create fireworks
+        function createFireworks() {
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const firework = document.createElement('div');
+                    firework.style.position = 'absolute';
+                    firework.style.width = '10px';
+                    firework.style.height = '10px';
+                    firework.style.borderRadius = '50%';
+                    firework.style.background = `hsl(${Math.random() * 360}, 100%, 65%)`;
+                    firework.style.left = `${Math.random() * 100}%`;
+                    firework.style.top = `${Math.random() * 100}%`;
+                    firework.style.boxShadow = '0 0 20px currentColor';
+                    firework.style.zIndex = '2';
+                    
+                    document.querySelector('.game-container').appendChild(firework);
+                    
+                    // Animate
+                    const size = Math.random() * 30 + 20;
+                    firework.animate([
+                        { transform: 'scale(0)', opacity: 1 },
+                        { transform: `scale(${size})`, opacity: 0 }
+                    ], {
+                        duration: 1000,
+                        easing: 'ease-out'
+                    });
+                    
+                    // Remove after animation
+                    setTimeout(() => {
+                        firework.remove();
+                    }, 1000);
+                }, i * 100);
+            }
+        }
+        
+        // Update progress bar
+        function updateProgress(percentage) {
+            progressFill.style.width = `${percentage}%`;
+        }
+        
+        // Restart game
+        function restartGame() {
+            currentScene = 1;
+            gameCompleted = false;
+            
+            // Reset scenes
+            scene1.style.transform = 'translateX(0)';
+            scene1.style.opacity = '1';
+            
+            scene2.style.transform = 'translateX(100%)';
+            scene2.style.opacity = '0';
+            
+            scene3.style.transform = 'translateX(100%)';
+            scene3.style.opacity = '0';
+            
+            // Reset characters
+            abhinav.classList.remove('kneeling');
+            ring.classList.remove('ring-show');
+            cake.classList.remove('show');
+            birthdayNumber.classList.remove('fade-in');
+            birthdayNumber.style.fontSize = '5rem';
+            birthdayNumber.style.top = '50px';
+            
+            // Reset dialogue
+            dialogueText.innerHTML = 'Abhinav: "Siya, on your special 18th birthday, I have something important to ask you..."';
+            
+            // Reset buttons
+            const optionsDiv = document.querySelector('#scene2 .dialogue-options');
+            optionsDiv.innerHTML = '';
+            
+            const kneelBtn = document.createElement('button');
+            kneelBtn.className = 'btn';
+            kneelBtn.textContent = 'Kneel Down';
+            kneelBtn.id = 'kneelBtn';
+            kneelBtn.addEventListener('click', kneelDown);
+            optionsDiv.appendChild(kneelBtn);
+            
+            const wishBtn = document.createElement('button');
+            wishBtn.className = 'btn';
+            wishBtn.textContent = 'Wish Happy Birthday First';
+            wishBtn.id = 'wishBtn';
+            wishBtn.addEventListener('click', wishBirthday);
+            optionsDiv.appendChild(wishBtn);
+            
+            // Clear cake candles
+            const candles = cake.querySelectorAll('.candle, .candle-flame');
+            candles.forEach(candle => candle.remove());
+            
+            // Reset progress
+            updateProgress(0);
+            
+            // Restart music if it was playing
+            if (musicPlaying) {
+                backgroundMusic.currentTime = 0;
+                backgroundMusic.play();
+            }
+        }
+        
+        // Toggle music
+        function toggleMusic() {
+            if (musicPlaying) {
+                backgroundMusic.pause();
+                if (!proposalMusic.paused) proposalMusic.pause();
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+            } else {
+                backgroundMusic.play().catch(e => {
+                    alert("Click the music button to play background music!");
+                });
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+            }
+            musicPlaying = !musicPlaying;
+        }
+        
+        // Initialize the game when page loads
+        window.onload = initGame;
+    </script>
+</body>
+</html>
